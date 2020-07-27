@@ -1,0 +1,81 @@
+endpoints:
+  cep:
+    base-url: https://viacep.com.br/ws/
+
+feign:
+  #The next attributes are handled manually, as there is a bug when setting timeouts and disabling follow redirects
+  connectTimeout: 5000
+  readTimeout: 5000
+  followRedirects: false
+  ignore-ssl: false
+  #end
+  client.config:
+    default:
+      loggerLevel: BASIC
+      retryer: dev.sandrocaseiro.springbootitExample.clients.retryers.NoRetryer
+  compression:
+    request.enabled: true
+    response.enabled: true
+  okhttp.enabled: true
+
+locale:
+  default: en-US
+
+server:
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain
+  error:
+    whitelabel:
+      enabled: false
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:32500/exemplo
+    username: postgres
+    password: 1234
+  application:
+    name: springbootitExample
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+  flyway:
+    enabled: true
+    clean-disabled: false
+    locations: classpath:db/migration/common,classpath:db/migration/prod
+  jmx:
+    enabled: false
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        proc:
+          param_null_passing: true
+          jdbc:
+            lob:
+              non_contextual_creation: true
+            time_zone: UTC
+  mvc:
+    throw-exception-if-no-handler-found: true
+  output:
+    ansi:
+      enabled: ALWAYS
+  resources:
+    add-mappings: false
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 4MB
+      max-request-size: 6MB
+
+springdoc:
+  default-produces-media-type: application/json
+  writer-with-default-pretty-printer: true
