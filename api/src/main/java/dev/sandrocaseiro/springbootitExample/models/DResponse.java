@@ -14,10 +14,10 @@ import java.util.List;
 public class DResponse<T> {
 
     @Schema(description = "List of the operations results")
-    private List<Error> errors;
+    private final List<Error> errors;
 
     @Schema(description = "Endpoint response data", nullable = true)
-    private T data;
+    private final T data;
 
     @JsonGetter("isSuccess")
     @Schema(description = "Operation was successful")
@@ -41,13 +41,13 @@ public class DResponse<T> {
     @Getter
     public static class Error {
         @Schema(description = "Code of the operation result", example = "500")
-        private int code;
+        private final int code;
 
         @Schema(description = "Type of the operation result")
-        private ErrorType type;
+        private final ErrorType type;
 
         @Schema(description = "Description of the operation result", example = "Server error")
-        private String description;
+        private final String description;
 
         public static Error error(int code, String description) {
             return new Error(code, ErrorType.ERROR, description);
@@ -75,6 +75,6 @@ public class DResponse<T> {
         SUCCESS("S");
 
         @JsonValue
-        private String value;
+        private final String value;
     }
 }

@@ -10,12 +10,16 @@ O projeto utiliza [Cucumber](https://cucumber.io/), [Spring Boot](https://spring
 A API necessita de um banco de dados PostgreSQL para funcionar em seu profile default. Os testes integrados devem ser executados usando o profile `test`.
 Todos os arquivos relacionados aos testes podem ser encontrados na pasta `src/integration-test`
 
-Para executar os testes, execute os comandos:
+Para executar os testes, execute o comando:
 
-```shell
-mvn install
-mvn install -Ptest
+```bash
 mvn integration-test -Ptest
+```
+
+Ou, caso queira executar a API com os dados de teste e API externa mockadas, execute o comando:
+
+```bash
+mvn spring-boot:run -Ptest
 ```
 
 ### Front-End
@@ -23,6 +27,6 @@ mvn integration-test -Ptest
 O front-end espera que a API esteja sendo executada na porta padrão (`8080`).
 
 Para executar os testes, execute os comandos:
-```shell
+```bash
 npm install
 ```

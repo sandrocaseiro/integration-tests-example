@@ -6,5 +6,5 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public class UsuarioPrincipal {
-    private String username;
+    private final String username;
 }

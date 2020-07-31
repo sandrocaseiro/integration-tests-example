@@ -9,7 +9,7 @@ Funcionalidade: Cenários de testes para busca de cep
 
   Cenário: Buscar CEP com API não funcional
     Dado que estou autenticado
-    E que a API de CEP não está funcionando
+    Mas que a API de CEP não está funcionando
     Quando eu chamo '/v1/cep/01451001' usando GET
     Então eu devo receber uma resposta com código 500
     E a resposta contém o código de erro 500

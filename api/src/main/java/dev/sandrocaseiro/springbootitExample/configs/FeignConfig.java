@@ -3,6 +3,7 @@ package dev.sandrocaseiro.springbootitExample.configs;
 import feign.Client;
 import feign.Feign;
 import feign.Request;
+import feign.Retryer;
 import feign.codec.Decoder;
 import feign.codec.Encoder;
 import feign.form.spring.SpringFormEncoder;
@@ -50,7 +51,22 @@ public class FeignConfig {
         return new feign.okhttp.OkHttpClient(httpClient());
     }
 
-    public OkHttpClient httpClient() throws KeyManagementException, NoSuchAlgorithmException {
+    @Bean
+    public Encoder feignEncoder() {
+        return new SpringFormEncoder(new JacksonEncoder());
+    }
+
+    @Bean
+    public Decoder feignDecoder() {
+        return new JacksonDecoder(WebConfig.getJsonMapper());
+    }
+
+    @Bean
+    public Retryer feignRetryer() {
+        return Retryer.NEVER_RETRY;
+    }
+
+    private OkHttpClient httpClient() throws KeyManagementException, NoSuchAlgorithmException {
         OkHttpClient.Builder builder = new OkHttpClient.Builder()
             .followSslRedirects(followRedirects)
             .followRedirects(followRedirects)
@@ -60,16 +76,6 @@ public class FeignConfig {
             ignoreSSLCetificates(builder);
 
         return builder.build();
-    }
-
-    @Bean
-    public Encoder feignEncoder() {
-        return new SpringFormEncoder(new JacksonEncoder());
-    }
-
-    @Bean
-    public Decoder feignDecoder() {
-        return new JacksonDecoder(WebConfig.getJsonMapper());
     }
 
     private void ignoreSSLCetificates(okhttp3.OkHttpClient.Builder builder) throws NoSuchAlgorithmException, KeyManagementException {

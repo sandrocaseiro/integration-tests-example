@@ -1,3 +1,10 @@
+cors:
+  enabled: true
+  allowed-headers: "*"
+  allowed-methods: GET, POST, PUT, DELETE, OPTIONS
+  allowed-origins: "*"
+  exposed-headers: Content-Disposition, Content-Length, Content-Type
+
 endpoints:
   cep:
     base-url: https://viacep.com.br/ws/
@@ -12,7 +19,6 @@ feign:
   client.config:
     default:
       loggerLevel: BASIC
-      retryer: dev.sandrocaseiro.springbootitExample.clients.retryers.NoRetryer
   compression:
     request.enabled: true
     response.enabled: true
@@ -20,6 +26,10 @@ feign:
 
 locale:
   default: en-US
+
+logging:
+  level:
+    dev.sandrocaseiro.springbootitExample.clients: DEBUG
 
 server:
   compression:
@@ -44,7 +54,7 @@ spring:
       force: true
   flyway:
     enabled: true
-    clean-disabled: false
+    clean-disabled: true
     locations: classpath:db/migration/common,classpath:db/migration/prod
   jmx:
     enabled: false
@@ -63,11 +73,15 @@ spring:
             lob:
               non_contextual_creation: true
             time_zone: UTC
+  main:
+    lazy-initialization: true
   mvc:
     throw-exception-if-no-handler-found: true
   output:
     ansi:
       enabled: ALWAYS
+  profiles:
+    active: @activeProfile@
   resources:
     add-mappings: false
   servlet:

@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class DListarTodosUsuariosResp {
     @Schema(description = "Lista dos usuários")
-    private List<Usuario> usuarios;
+    private final List<Usuario> usuarios;
 
     @Data
     public static class Usuario {
