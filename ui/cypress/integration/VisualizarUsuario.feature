@@ -20,6 +20,6 @@ Feature: Visualizar Usuário
     And o botão salvar usuário não deve estar visível
 
     Scenario: Visualizar usuário não existente
-    When eu acesso a tela de visualizar o usuário 3
+    When eu acesso a tela de visualizar o usuário 99
     Then o mostrador de progresso será mostrado
     And o alerta de erro será mostrado
