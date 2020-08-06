@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Cep() {
   const classes = useStyles();
-  const [cep, setCep] = useState('01451001');
+  const [cep, setCep] = useState('');
   const [apiCall, {isLoading, response}] = useAxios();
 
   const handleSubmit = (e) => {
@@ -43,17 +43,28 @@ function Cep() {
   };
 
   return (
-    <div className={classes.main}>
+    <div className={classes.main} data-cy="page">
       <Paper elevation={2} className={classes.formContainer}>
         <form autoComplete="off" className={classes.form} onSubmit={handleSubmit}>
-          <TextField label="CEP" variant="outlined" size="small" required defaultValue={cep} onChange={(e) => setCep(e.target.value)} />
+          <TextField
+            label="CEP"
+            variant="outlined"
+            size="small"
+            required
+            defaultValue={cep}
+            onChange={(e) => setCep(e.target.value)}
+            inputProps={{
+              'data-cy': 'input-cep'
+            }}
+          />
           <Button
             type="submit"
             variant="contained"
             color="primary"
             size="medium"
             className={classes.button}
-            startIcon={<SearchIcon />}>
+            startIcon={<SearchIcon />}
+            data-cy="buscar-cep">
             Buscar
           </Button>
         </form>

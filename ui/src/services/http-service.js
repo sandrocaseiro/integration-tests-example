@@ -8,4 +8,11 @@ const instance = axios.create({
   }
 });
 
+if (process.env.REACT_APP_IS_TEST) {
+  instance.interceptors.request.use(config => {
+    console.log('delaying call');
+    return new Promise(resolve => setTimeout(() => resolve(config), 2000));
+  })
+}
+
 export default instance;

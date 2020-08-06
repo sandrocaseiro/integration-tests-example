@@ -27,7 +27,7 @@ function ListItemLink(props) {
 
   return (
     <li>
-      <ListItem divider button component={renderLink}>
+      <ListItem divider button component={renderLink} data-cy={props['data-cy']}>
         {icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
         <ListItemText primary={primary} />
       </ListItem>
@@ -39,6 +39,7 @@ ListItemLink.propTypes = {
   icon: PropTypes.element,
   primary: PropTypes.string.isRequired,
   to: PropTypes.string.isRequired,
+  'data-cy': PropTypes.string
 };
 
 export default ListItemLink;

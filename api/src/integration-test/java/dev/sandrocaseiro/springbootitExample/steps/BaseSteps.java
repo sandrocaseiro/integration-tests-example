@@ -16,7 +16,8 @@ import static io.restassured.config.RestAssuredConfig.config;
 
 @CucumberContextConfiguration
 @SpringBootTest(
-    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
+    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
+    properties = {"isTest=true"}
 )
 @ActiveProfiles("test")
 public abstract class BaseSteps {

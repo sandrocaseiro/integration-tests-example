@@ -55,7 +55,7 @@ spring:
   flyway:
     enabled: true
     clean-disabled: true
-    locations: classpath:db/migration/common,classpath:db/migration/prod
+    locations: classpath:db/migration/prod
   jmx:
     enabled: false
   jpa:

@@ -29,7 +29,7 @@ function CepResult(props) {
     return null;
 
   return (
-    <Paper elevation={2} className={classes.container}>
+    <Paper elevation={2} className={classes.container} data-cy="resultado-cep">
       <Grid container spacing={1}>
         <Grid item xs={labelSpace}>
           <span className={classes.label}>CEP:</span>

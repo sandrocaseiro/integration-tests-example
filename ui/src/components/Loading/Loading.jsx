@@ -14,7 +14,7 @@ function Loading(props) {
   const classes = useStyles();
   
   if (props.isLoading)
-    return <div className={classes.loadingContainer}><CircularProgress /></div>;
+    return <div className={classes.loadingContainer} data-cy="loader"><CircularProgress /></div>;
   else
     return props.children ?? null;
 }

@@ -56,8 +56,6 @@ function Usuario() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-
     saveApiCall({
       url: '/v1/usuarios',
       method: 'post',

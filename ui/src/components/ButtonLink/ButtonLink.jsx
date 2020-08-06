@@ -11,7 +11,7 @@ function ButtonLink(props) {
     [to],
   );
 
-  return <Button className={className} color={color} variant={variant} component={renderLink}>{text}</Button>;
+  return <Button className={className} color={color} variant={variant} component={renderLink} data-cy={props['data-cy']} >{text}</Button>;
 }
 
 ButtonLink.defaultProps = {
@@ -23,7 +23,8 @@ ButtonLink.propTypes = {
   to: PropTypes.string.isRequired,
   variant: PropTypes.string,
   className: PropTypes.string,
-  color: PropTypes.oneOf(['primary', 'secondary'])
+  color: PropTypes.oneOf(['primary', 'secondary']),
+  'data-cy': PropTypes.string
 };
 
 export default ButtonLink;

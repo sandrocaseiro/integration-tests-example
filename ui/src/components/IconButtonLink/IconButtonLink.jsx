@@ -11,12 +11,13 @@ function IconButtonLink(props) {
     [to],
   );
 
-  return <IconButton component={renderLink}>{icon}</IconButton>;
+  return <IconButton component={renderLink} data-cy={props['data-cy']}>{icon}</IconButton>;
 }
 
 IconButtonLink.propTypes = {
   icon: PropTypes.element.isRequired,
   to: PropTypes.string.isRequired,
+  'data-cy': PropTypes.string
 };
 
 export default IconButtonLink;

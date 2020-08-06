@@ -11,7 +11,7 @@ spring:
   h2.console.enabled: true
   flyway:
     clean-disabled: false
-    locations: classpath:db/migration/common,classpath:db/migration/test
+    locations: classpath:db/migration/test
   jpa:
     properties:
       hibernate:

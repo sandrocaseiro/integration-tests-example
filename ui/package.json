@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
+    "start:test": "cross-env REACT_APP_IS_TEST=Y react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test:edge": "cypress run --browser edge --no-exit"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -23,6 +24,9 @@
       "last 1 safari version"
     ]
   },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": "cypress/support/steps"
+  },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
@@ -36,7 +40,14 @@
     "query-string": "^6.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-hook-form": "^6.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1"
   },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "cypress": "^4.12.1",
+    "cypress-cucumber-preprocessor": "^2.5.4",
+    "cypress-wait-until": "^1.7.1"
+  }
 }

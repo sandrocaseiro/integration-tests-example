@@ -81,13 +81,15 @@ function App() {
           variant="permanent"
           classes={{
             paper: classes.drawerPaper,
-          }}>
+          }}
+          data-cy="menu"
+          >
           <Toolbar />
           <div className={classes.drawerContainer}>
             <List>
-              <ListItemLink to="/" primary="Home" icon={<HomeIcon />} />
-              <ListItemLink to="/cep" primary="CEP" icon={<MailIcon />} />
-              <ListItemLink to="/usuarios" primary="Usuários" icon={<PersonIcon />} />
+              <ListItemLink to="/" primary="Home" icon={<HomeIcon />} data-cy="menu-item" />
+              <ListItemLink to="/cep" primary="CEP" icon={<MailIcon />} data-cy="menu-item" />
+              <ListItemLink to="/usuarios" primary="Usuários" icon={<PersonIcon />} data-cy="menu-item" />
             </List>
           </div>
         </Drawer>

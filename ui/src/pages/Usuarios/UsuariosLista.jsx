@@ -67,10 +67,10 @@ function TableContent({isLoading, response, error}) {
     return (
       <React.Fragment>
         {response.data.data.usuarios.map(i => (
-          <StyledTableRow key={i.id}>
+          <StyledTableRow key={i.id} data-cy="usuario-tabela-item">
               <TableCell align="center">{i.id}</TableCell>
               <TableCell align="center">{i.nome}</TableCell>
-              <TableCell align="center"><IconButtonLink to={`/usuarios/${i.id}`} icon={<SearchIcon />} /></TableCell>
+              <TableCell align="center"><IconButtonLink to={`/usuarios/${i.id}`} icon={<SearchIcon />} data-cy={`usuario-visualizar-${i.id}`} /></TableCell>
           </StyledTableRow>
         ))}
       </React.Fragment>
@@ -101,9 +101,9 @@ function UsuariosLista() {
   return (
     <div className={classes.container}>
       <div className={classes.table}>
-        <ButtonLink className={classes.buttonNovo} variant="contained" color="secondary" text="Novo" to="/usuarios/novo" />
+        <ButtonLink className={classes.buttonNovo} variant="contained" color="secondary" text="Novo" to="/usuarios/novo" data-cy="usuario-novo" />
         <TableContainer component={Paper}>
-          <Table aria-label="simple table">
+          <Table aria-label="simple table" data-cy="usuario-tabela">
             <TableHead>
               <TableRow>
                 <StyledTableCell align="center">Id</StyledTableCell>
@@ -117,7 +117,7 @@ function UsuariosLista() {
           </Table>
         </TableContainer>
       </div>
-      <Snackbar open={snackOpen} autoHideDuration={1500} onClose={handleSnackClose}>
+      <Snackbar open={snackOpen} autoHideDuration={1500} onClose={handleSnackClose} data-cy="alerta-sucesso">
         <Alert onClose={handleSnackClose} severity="success">{params.msg}</Alert>
       </Snackbar>
     </div>

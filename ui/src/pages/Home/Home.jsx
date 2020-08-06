@@ -19,7 +19,7 @@ function Home() {
   const classes = useStyles();
 
   return (
-    <div className={classes.main}>
+    <div className={classes.main} data-cy="home-titulo">
       <Typography variant="h4" align="center" className={classes.text}>
         Este é um projeto de exemplo para execução de testes integrados com Cucumber e Cypress
       </Typography>
