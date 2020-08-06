@@ -1,0 +1,14 @@
+{
+  "errors": [
+      {
+          "code": 200,
+          "type": "S",
+          "description": "Sucesso"
+      }
+  ],
+  "data": {
+      "id": 1,
+      "nome": "usuario1"
+  },
+  "isSuccess": true
+}

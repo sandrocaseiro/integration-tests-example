@@ -48,8 +48,9 @@ Feature: Novo Usuário
 
   Scenario: Cadastrar usuário com sucesso
     Given que estou na tela de novo usuário
-    When eu digito o valor "usuario99" no campo "nome"
-    And eu digito o valor "usuario99@mail.com" no campo "email"
+    When eu digito o valor "usuario4" no campo "nome"
+    And eu digito o valor "usuario4@mail.com" no campo "email"
     And eu clico no botão salvar usuário
-    Then eu sou redirecionado para a tela de lista de usuários
+    Then o formulário de cadastro de usuário é submetido
+    And eu sou redirecionado para a tela de lista de usuários
     And o alerta de sucesso de usuário criado será mostrado

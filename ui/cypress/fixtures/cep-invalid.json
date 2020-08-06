@@ -1,0 +1,11 @@
+{
+  "errors": [
+      {
+          "code": 500,
+          "type": "E",
+          "description": "Erro do servidor"
+      }
+  ],
+  "data": null,
+  "isSuccess": false
+}

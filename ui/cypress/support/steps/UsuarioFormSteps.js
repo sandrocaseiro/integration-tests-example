@@ -45,3 +45,12 @@ Then('o campo {string} estará com o status de erro', (campo) => {
 Then('eu clico no botão salvar usuário', () => {
   NovoVisualizarUsuarioPage.clicarBotaoSalvar();
 });
+
+Then('o formulário de cadastro de usuário é submetido', () => {
+  cy.wait('@criar-usuario');
+  cy.get('@criar-usuario').its('request.body').should('deep.equal', {
+    id: '',
+    nome: 'usuario4',
+    email: 'usuario4@mail.com'
+  });
+});

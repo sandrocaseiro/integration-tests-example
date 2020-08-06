@@ -1,0 +1,17 @@
+{
+  "errors": [
+      {
+          "code": 200,
+          "type": "S",
+          "description": "Sucesso"
+      }
+  ],
+  "data": {
+      "cep": "01451-001",
+      "logradouro": "Avenida Brigadeiro Faria Lima",
+      "bairro": "Jardim Paulistano",
+      "cidade": "São Paulo",
+      "uf": "SP"
+  },
+  "isSuccess": true
+}
