@@ -7,6 +7,7 @@
     "start:test": "cross-env REACT_APP_IS_TEST=Y react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:it": "cypress run",
     "test:edge": "cypress run --browser edge"
   },
   "eslintConfig": {

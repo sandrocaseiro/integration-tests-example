@@ -50,7 +50,15 @@ Os dados são recriados a cada execução do projeto, utilizando uma base H2. As
 
 O front-end espera que a API esteja sendo executada na porta padrão (`8080`).
 
-Para executar os testes, execute os comandos:
+
+
+Para executar os testes, primeiro inicialize a aplicação com:
 ```bash
 npm install
+npm start
+```
+
+E então execute os testes com:
+```bash
+npm run test:it
 ```
