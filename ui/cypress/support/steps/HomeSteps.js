@@ -1,11 +1,14 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
+/// <reference types="Cypress" />
 
-import HomePage from '../pageobjects/HomePage';
+import { Given, Then } from 'cypress-cucumber-preprocessor/steps';
+import HomeElements from '../elements/HomeElements';
+
+const url = Cypress.config("baseUrl");
 
 Given('que acesso ao site', () => {
-  HomePage.acessarHome();
+  cy.visit(url);
 });
 
 Then('devo ver a mensagem da home', () => {
-  HomePage.checarMensagem();
+  cy.get(HomeElements.msg).should('contain', 'projeto de exemplo');
 });

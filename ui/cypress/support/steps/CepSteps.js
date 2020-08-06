@@ -1,23 +1,26 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
+/// <reference types="Cypress" />
 
-import CepPage from '../pageobjects/CepPage';
+import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
+import CepElements from '../elements/CepElements';
+
+const url = Cypress.config("baseUrl");
 
 Given('que estou na tela de CEP', () => {
-  CepPage.acessar();
+  cy.visit(url + 'cep');
 });
 
 When('eu digito o CEP {word}', (cep) => {
-  CepPage.digitar(cep);
+  cy.get(CepElements.inputBusca).type(cep);
 });
 
 When('eu clico em buscar', () => {
-  CepPage.enviar();
+  cy.get(CepElements.botaoBusca).click();
 });
 
 When('eu digito o CEP {word} e envio', (cep) => {
-  CepPage.digitarEEnviar(cep);
+  cy.get(CepElements.inputBusca).type(`${cep}{enter}`);
 });
 
 Then('a tabela de resultado de CEP será mostrada', () => {
-  CepPage.tabelaResultadoVisivel();
+  cy.get(CepElements.tabelaResultado).should('be.visible');
 });

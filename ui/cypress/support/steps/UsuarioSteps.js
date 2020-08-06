@@ -1,41 +1,46 @@
+/// <reference types="Cypress" />
+
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
 
-import ListaUsuarioPage from '../pageobjects/ListaUsuarioPage';
-import NovoVisualizarUsuarioPage from '../pageobjects/NovoVisualizarUsuarioPage';
-import Common from '../pageobjects/Common';
+import ListaUsuarioElements from '../elements/ListaUsuarioElements';
+
+const url = Cypress.config("baseUrl");
 
 Given('que estou na tela de lista de usuários', () => {
-  ListaUsuarioPage.acessar();
+  cy.visit(url + 'usuarios');
 });
 
 Given('que estou na tela de novo usuário', () => {
-  NovoVisualizarUsuarioPage.acessarNovo();
+  cy.visit(`${url}usuarios/novo`);
 });
 
 When('eu acesso a tela de novo usuário', () => {
-  NovoVisualizarUsuarioPage.acessarNovo();
+  cy.visit(`${url}usuarios/novo`);
 });
 
 When('eu acesso a tela de visualizar o usuário {int}', (id) => {
-  NovoVisualizarUsuarioPage.acessar(id);
+  cy.visit(`${url}usuarios/${id}`);
 });
 
 When('eu clico no botão novo usuário', () => {
-  ListaUsuarioPage.clicarBotaoNovoUsuario();
+  cy.get(ListaUsuarioElements.botaoNovo).click();
 });
 
 When('eu clico no botão para visualizar o usuário {int}', (id) => {
-  ListaUsuarioPage.clicarVisualizar(id);
+  cy.get(ListaUsuarioElements.visualizar(id)).click();
 });
 
 Then('a lista de usuários será mostrada', function() {
-  ListaUsuarioPage.tabelaTemResultados();
+  cy.get(ListaUsuarioElements.tabelaItem)
+      .should('be.visible');
 });
 
 Then('eu sou redirecionado para a tela de lista de usuários', () => {
-  Common.checarLocation("/usuarios");
+  cy.location('pathname').should('eq', '/usuarios');
 });
 
 Then('o alerta de sucesso de usuário criado será mostrado', () => {
-  ListaUsuarioPage.alertaSucesso();
+  cy.get(ListaUsuarioElements.alertaSucesso).should('be.visible');
+  cy.waitUntil(() => cy.get(ListaUsuarioElements.alertaSucesso));
+  cy.get(ListaUsuarioElements.alertaSucesso).should('not.be.visible');
 });
