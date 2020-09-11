@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
-    "start:test": "cross-env REACT_APP_IS_TEST=Y react-scripts start",
+    "start": "cross-env BROWSER=none react-scripts start",
+    "start:test": "cross-env BROWSER=none REACT_APP_IS_TEST=Y react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:it": "cypress run",
-    "test:edge": "cypress run --browser edge"
+    "test:e2e": "cross-env CYPRESS_E2E=Y cypress run",
+    "test:it:edge": "cypress run --browser edge",
+    "test:e2e:edge": "cross-env CYPRESS_E2E=Y cypress run --browser edge",
+    "cypress:open": "cypress open",
+    "cypress:open:e2e": "cross-env CYPRESS_E2E=Y start-server-and-test start:test http://localhost:3000 cypress:open"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -47,8 +51,9 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
-    "cypress": "^4.12.1",
+    "cypress": "^5.1.0",
     "cypress-cucumber-preprocessor": "^2.5.4",
-    "cypress-wait-until": "^1.7.1"
+    "cypress-wait-until": "^1.7.1",
+    "start-server-and-test": "^1.11.3"
   }
 }
