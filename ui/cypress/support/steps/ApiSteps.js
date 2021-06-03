@@ -3,6 +3,17 @@
 import { Before } from 'cypress-cucumber-preprocessor/steps';
 
 Before(() => {
+  if (Cypress.env('E2E') == 'Y') {
+    cy.request({
+      url: '/v1/resetdb',
+      headers: {
+        Authorization: 'teste'
+      }
+    });
+
+    return;
+  }
+
   cy.server({
     delay: 2000
   });

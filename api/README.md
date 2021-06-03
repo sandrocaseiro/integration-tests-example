@@ -15,4 +15,4 @@ Os dados são recriados a cada execução do projeto, utilizando uma base H2. As
 |---|---|---|
 | 01451001 | 200 | Cep encontrado |
 | 99999999 | 200 | Cep não encontrado |
-| Outros | 404 | NA |
+| Outros | 500 | NA |

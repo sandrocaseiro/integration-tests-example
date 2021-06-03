@@ -43,14 +43,12 @@ Os dados são recriados a cada execução do projeto, utilizando uma base H2. As
 |---|---|---|
 | 01451001 | 200 | Cep encontrado |
 | 99999999 | 200 | Cep não encontrado |
-| Outros | 404 | NA |
+| Outros | 500 | NA |
 
 ---
 ### Front-End
 
 O front-end espera que a API esteja sendo executada na porta padrão (`8080`).
-
-
 
 Para executar os testes, primeiro inicialize a aplicação com:
 ```bash

@@ -1,3 +1,5 @@
 api/.idea
 api/target
 api/spring-boot-integration-test.iml
+.idea
+*.iml
