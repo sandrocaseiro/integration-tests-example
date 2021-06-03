@@ -3,14 +3,14 @@ Funcionalidade: Cenários de testes para busca de cep
   Testes relacionados ao endpoint de busca de cep
 
   Cenário: Buscar CEP sem autenticação
-    Quando eu chamo '/v1/cep/01451001' usando GET
+    Quando eu chamo '/v1/cep/01001000' usando GET
     Então eu devo receber uma resposta com código 403
     E a resposta contém o código de erro 403
 
   Cenário: Buscar CEP com API não funcional
     Dado que estou autenticado
     Mas que a API de CEP não está funcionando
-    Quando eu chamo '/v1/cep/01451001' usando GET
+    Quando eu chamo '/v1/cep/01001000' usando GET
     Então eu devo receber uma resposta com código 500
     E a resposta contém o código de erro 500
 
@@ -31,10 +31,10 @@ Funcionalidade: Cenários de testes para busca de cep
   Cenário: Buscar CEP existente
     Dado que estou autenticado
     E que a API de CEP está funcionando
-    Quando eu chamo '/v1/cep/01451001' usando GET
+    Quando eu chamo '/v1/cep/01001000' usando GET
     Então eu devo receber uma resposta com código 200
-    E a resposta deve conter a propriedade 'data.cep' com o valor '01451-001'
-    E a resposta deve conter a propriedade 'data.logradouro' com o valor 'Avenida Brigadeiro Faria Lima'
-    E a resposta deve conter a propriedade 'data.bairro' com o valor 'Jardim Paulistano'
+    E a resposta deve conter a propriedade 'data.cep' com o valor '01001-000'
+    E a resposta deve conter a propriedade 'data.logradouro' com o valor 'Praça da Sé'
+    E a resposta deve conter a propriedade 'data.bairro' com o valor 'Sé'
     E a resposta deve conter a propriedade 'data.cidade' com o valor 'São Paulo'
     E a resposta deve conter a propriedade 'data.uf' com o valor 'SP'

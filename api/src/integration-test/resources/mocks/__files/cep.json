@@ -1,11 +1,12 @@
 {
-    "cep": "01451-001",
-    "logradouro": "Avenida Brigadeiro Faria Lima",
-    "complemento": "de 1018 a 1882 - lado par",
-    "bairro": "Jardim Paulistano",
-    "localidade": "São Paulo",
-    "uf": "SP",
-    "unidade": "",
-    "ibge": "3550308",
-    "gia": "1004"
+  "cep": "01001-000",
+  "logradouro": "Praça da Sé",
+  "complemento": "lado ímpar",
+  "bairro": "Sé",
+  "localidade": "São Paulo",
+  "uf": "SP",
+  "ibge": "3550308",
+  "gia": "1004",
+  "ddd": "11",
+  "siafi": "7107"
 }

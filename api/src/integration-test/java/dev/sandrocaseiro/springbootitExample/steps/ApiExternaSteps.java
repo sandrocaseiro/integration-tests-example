@@ -27,7 +27,7 @@ public class ApiExternaSteps extends BaseSteps implements Pt {
 
     public static void registerStubs() {
         stubFor(
-            get(urlPathMatching("/cep/01451001/.*"))
+            get(urlPathMatching("/cep/01001000/.*"))
                 .atPriority(1)
                 .willReturn(
                     aResponse()
